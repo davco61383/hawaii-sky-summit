@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: SITE.description,
   openGraph: { type: "website", siteName: SITE.name, title: SITE.name, description: SITE.description },
   twitter: { card: "summary_large_image", title: SITE.name, description: SITE.description },
+  // Google Search Console: set GOOGLE_SITE_VERIFICATION to the content value of Google's HTML meta tag.
+  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
   robots: isLive() ? { index: true, follow: true } : { index: false, follow: false },
 };
 
