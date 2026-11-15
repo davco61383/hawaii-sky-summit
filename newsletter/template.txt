@@ -1,0 +1,19 @@
+HAWAII SKY & SUMMIT — 5 picks for the week of {{WEEK_OF}}
+
+1. {{PICK_1}}
+   {{PICK_1_URL}}
+2. {{PICK_2}}
+   {{PICK_2_URL}}
+3. {{PICK_3}}
+   {{PICK_3_URL}}
+4. {{PICK_4}}
+   {{PICK_4_URL}}
+5. {{PICK_5}}
+   {{PICK_5_URL}}
+
+Sponsored by {{SPONSOR_NAME}} — {{SPONSOR_LINE}}
+{{SPONSOR_URL}}
+
+All times HST. Always confirm on the official booking page before you go.
+More drops + tonight's sky: {{SITE_URL}}
+Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}
