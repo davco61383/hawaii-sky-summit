@@ -1,3 +1,10 @@
+import { moonOn } from "./sky";
+
+function moonClause(ymd: string): string {
+  const m = moonOn(ymd);
+  return `Moon ${m.illumination}% (${m.phase.toLowerCase()})`;
+}
+
 // Real, sourced entries. Every entry has a source URL that was checked on `checked`.
 // Do not add anything here that you cannot point to an official or primary source for.
 // Times are Hawaii Standard Time (HST, UTC-10; Hawaii has no daylight saving time).
@@ -358,7 +365,7 @@ export const SEED_ENTRIES: Entry[] = [
     title: "Leonids peak",
     category: "meteors",
     island: "Statewide",
-    summary: "Peak night Nov 16–17; ~15/hr at best. Moon 39% (waxing crescent) sets early — go after midnight.",
+    summary: `Peak night Nov 16–17; ~15/hr at best. ${moonClause("2026-11-16")} sets early — go after midnight.`,
     eventDate: "2026-11-16",
     endDate: "2026-11-17",
     eventTime: "Best after midnight",

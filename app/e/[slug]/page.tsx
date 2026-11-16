@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Countdown from "@/components/Countdown";
 import SignupForm from "@/components/SignupForm";
 import { categoryLabel, computeDrop, getEntry } from "@/lib/entries";
-import { moonPctOn } from "@/lib/sky";
+import { moonOn } from "@/lib/sky";
 import { fmtDate, fmtTime, hstDate, hstWall, relDay } from "@/lib/time";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +22,8 @@ export default async function EntryPage({ params }: P) {
   const e = await getEntry(slug);
   if (!e) notFound();
   const d = computeDrop(e);
+  const moon =
+    e.eventDate && ["meteors", "star-parties"].includes(e.category) ? moonOn(e.eventDate) : null;
   const clock = d.nextRelease
     ? (() => {
         const w = hstWall(new Date(d.nextRelease!));
@@ -62,7 +64,7 @@ export default async function EntryPage({ params }: P) {
             <strong>{fmtDate(e.eventDate)}</strong>
             {e.endDate && e.endDate !== e.eventDate ? <> – {fmtDate(e.endDate)}</> : null}
             {e.eventTime ? <> · {e.eventTime}</> : null}
-            {["meteors", "star-parties"].includes(e.category) ? <span className="muted"> · Moon ~{moonPctOn(e.eventDate)}% lit at 9 PM</span> : null}
+            {moon ? <span className="muted"> · {moon.emoji} {moon.phase}, {moon.illumination}% lit at 9 PM</span> : null}
           </p>
         ) : null}
         <p className="lead">{e.summary}</p>
